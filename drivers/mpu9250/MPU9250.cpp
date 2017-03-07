@@ -381,9 +381,9 @@ void MPU9250::_measure()
 {
   // TODO-JYW: TESTING-TESTING
   DF_LOG_INFO("entering MPU9250::_measure");
-//  _setBusFrequency(SPI_FREQUENCY_1MHZ);
-//  DF_LOG_INFO("exiting MPU9250::_measure");
-//  return;
+  _setBusFrequency(SPI_FREQUENCY_1MHZ);
+  DF_LOG_INFO("exiting MPU9250::_measure");
+  return;
   // TODO-JYW: TESTING-TESTING
 
 	// Use 1 MHz for normal registers.
@@ -436,20 +436,20 @@ void MPU9250::_measure()
 	// Therefore, we need to adapt the interval which we pass on to the integrator.
 	// The filtering is to lower the jitter that could result through the calculation
 	// because of the fact that the bytes we fetch per _measure() cycle varies.
-	_packets_per_cycle_filtered = (0.95f * _packets_per_cycle_filtered) + (0.05f * (bytes_to_read / size_of_fifo_packet));
+//	_packets_per_cycle_filtered = (0.95f * _packets_per_cycle_filtered) + (0.05f * (bytes_to_read / size_of_fifo_packet));
 
-	if (bytes_to_read < 0) {
-	  // TODO-JYW: TESTING-TESTING
-//		m_synchronize.lock();
-		++m_sensor_data.error_counter;
-//		m_synchronize.unlock();
-		return;
-	}
+//	if (bytes_to_read < 0) {
+//	  // TODO-JYW: TESTING-TESTING
+////		m_synchronize.lock();
+//		++m_sensor_data.error_counter;
+////		m_synchronize.unlock();
+//		return;
+//	}
 
 	// TODO-JYW: TESTING-TESTING:
 	DF_LOG_INFO("Bytes received: %d.", bytes_to_read);
   DF_LOG_INFO("MPU9250::reset_fifo().");
-  reset_fifo();
+//  reset_fifo();
   return;
 
 	// Allocate a buffer large enough for n complete packets, read from the
