@@ -44,7 +44,7 @@
 
 #if defined(__DF_QURT)
 #include "dev_fs_lib_spi.h"
-#define IMU_DEVICE_PATH "/dev/spi-1"
+#define IMU_DEVICE_PATH "/dev/spi-10"
 #elif defined(__DF_BEBOP)
 #define IMU_DEVICE_PATH "/dev/i2c-mpu6050"
 #elif defined(__DF_RPI)
